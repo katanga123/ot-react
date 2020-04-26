@@ -1,0 +1,169 @@
+// inputs
+.ot-input {
+    height: 60px;
+    width: 100%;
+    padding: 20px 0px;
+    border: none;
+    border-bottom: 1px solid #f9f5ef;
+    margin-bottom: 15px;
+    position: relative;
+    transition: ease-in-out cubic-bezier(0.6, -0.28, 0.735, 0.045);
+
+    &:focus+.ot-link {
+        display: none;
+    }
+}
+
+.ot-link {
+    transition: ease-in-out cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.ot-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    &:checked~.ot-checkmark,
+    &:checked~.ot-checkmark::after {
+        background-color: #007aff;
+        display: block;
+    }
+}
+
+/* Create a custom checkbox */
+.ot-checkmark {
+    position: absolute;
+    top: 5%;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    border-radius: 4px;
+    background-color: #eee;
+
+    &::after {
+        content: "";
+        position: absolute;
+        display: none;
+        left: 5px;
+        top: 3px;
+        width: 8px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+}
+
+.ot-input-regular {
+    border-radius: 10px;
+    background-color: #fff;
+    margin-bottom: 15px;
+    width: 100%;
+    position: relative;
+    opacity: 70%;
+
+    &::placeholder {
+        color: #3C3C43;
+        opacity: 33%;
+    }
+}
+
+.ot-input-white {
+    border-radius: 10px;
+    background-color: #fff;
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 17px;
+    position: relative;
+
+    &::placeholder {
+        color: #3C3C43;
+        opacity: 33%;
+    }
+}
+
+// buttons
+.ot-btn {
+    padding: 18px 16px;
+    width: 100%;
+    position: relative;
+    display: block;
+    text-align: center;
+    font-size: 17px;
+}
+
+.ot-btn-default {
+    background-color: #f4f4f4;
+    margin-bottom: 15px;
+    font-family: "SF Pro Text";
+    font-weight: 600;
+    border-radius: 14px;
+    color: #000000;
+}
+
+.ot-btn-regular {
+    margin-bottom: 15px;
+    background-color: #007aff;
+    font-family: "SF Pro Text";
+    font-weight: 600;
+    border-radius: 14px;
+    color: #fff;
+}
+
+// Text
+
+.ot-header {
+    font-weight: bold;
+    font-family: "SF Pro Display";
+    color: #000000;
+}
+
+.ot-sub-header {
+    font-family: "SF Pro Text";
+    color: #3c3c43;
+    opacity: 60%;
+    font-size: 17px;
+}
+
+.ot-paragraph {
+    font-family: "SF Pro Text";
+    font-size: 15px;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+// Icons
+
+.ot-icon-32 {
+    width: 32px;
+    height: 32px;
+}
+
+
+// color
+
+.ot-blue {
+    color: #0a84ff;
+}
+
+.ot-gray {
+    color: #3c3c43;
+}
+
+.ot-gray-300 {
+    color: #3C3C43;
+    opacity: 33%;
+}
+
+.ot-black {
+    color: #000000;
+}
