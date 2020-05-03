@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
 
 const CreateSubjectPage = (props) => {
     return (
-        <div className="ot-home-page-container py2 container max-w-screen-sm mx-auto">
+        <div className="ot-home-page-container pt-2 pb-20 container max-w-screen-sm mx-auto">
             <h2 className="ot-header">Create Subjects</h2>
 
             {/* Create Subjects */}
@@ -19,7 +18,6 @@ const CreateSubjectPage = (props) => {
                         <textarea className="ot-input-white" placeholder="Desciption"></textarea>
                     </div>
                     <button className="ot-btn ot-btn-regular">Create Subject</button>
-                    <Link to="/subject" className="ot-btn ot-btn-default">Cancel</Link>
                 </form>
             </div>
         </div>

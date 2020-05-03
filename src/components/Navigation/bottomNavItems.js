@@ -5,7 +5,8 @@ import { NavLink } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClipboard, faUser, faShareSquare } from '@fortawesome/free-regular-svg-icons'
 
-const NavItems = () => {
+const NavItems = (props) => {
+
     const items = [
         {
             icon: faClipboard,

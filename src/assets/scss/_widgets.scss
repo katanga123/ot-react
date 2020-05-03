@@ -9,7 +9,8 @@
     position: relative;
     transition: ease-in-out cubic-bezier(0.6, -0.28, 0.735, 0.045);
 
-    &:focus+.ot-link {
+    &:focus + .ot-link,
+    &:active + .ot-link {
         display: none;
     }
 }
@@ -25,8 +26,8 @@
     height: 0;
     width: 0;
 
-    &:checked~.ot-checkmark,
-    &:checked~.ot-checkmark::after {
+    &:checked ~ .ot-checkmark,
+    &:checked ~ .ot-checkmark::after {
         background-color: #007aff;
         display: block;
     }
@@ -67,7 +68,7 @@
     opacity: 70%;
 
     &::placeholder {
-        color: #3C3C43;
+        color: #3c3c43;
         opacity: 33%;
     }
 }
@@ -81,7 +82,7 @@
     position: relative;
 
     &::placeholder {
-        color: #3C3C43;
+        color: #3c3c43;
         opacity: 33%;
     }
 }
@@ -148,7 +149,6 @@
     height: 32px;
 }
 
-
 // color
 
 .ot-blue {
@@ -160,7 +160,7 @@
 }
 
 .ot-gray-300 {
-    color: #3C3C43;
+    color: #3c3c43;
     opacity: 33%;
 }
 

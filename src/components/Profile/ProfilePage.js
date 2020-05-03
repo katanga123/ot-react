@@ -1,9 +1,10 @@
 import React from 'react';
 
 const ProfilePage = () => {
+
     return (
-        <div className="ot-profile-page-container py2 container mx-auto">
-            Profile Page
+        <div className="ot-profile-page-container pt-2 pb-20 container mx-auto">
+            <h1>Profile Page</h1>
         </div>
     )
 }

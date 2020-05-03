@@ -9,15 +9,15 @@ import { faFolder } from '@fortawesome/free-regular-svg-icons'
 
 const HomePage = () => {
     return (
-        <div className="ot-home-page-container py2 container mx-auto">
+        <div className="ot-home-page-container pt-2 pb-20 container mx-auto">
             <h2 className="ot-header">My Subjects</h2>
             <Search placeholder={"Type subject name"} />
 
             {/* Subjects */}
             <div className="ot-subjects-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
 
-                <div className="ot-subjects  bg-white rounded-lg p-6 hover:shadow-lg active:shadow-xl">
-                    <Link to="subject/1" className="flex justify-start items-center text-left">
+                <div className="ot-subjects  bg-white rounded-lg hover:shadow-lg active:shadow-xl">
+                    <Link to="subject/1" className="flex justify-start p-6 items-center text-left">
                         <div className="icons mr-3">
                             <FontAwesomeIcon icon={faFolder} className="text-gray-600" size="2x" />
                         </div>
@@ -30,8 +30,8 @@ const HomePage = () => {
                     </Link>
                 </div>
 
-                <div className="ot-subjects  bg-white rounded-lg p-6 hover:shadow-lg active:shadow-xl">
-                    <Link to="subject/2" className="flex justify-between items-center text-left">
+                <div className="ot-subjects  bg-white rounded-lg hover:shadow-lg active:shadow-xl">
+                    <Link to="subject/2" className="flex justify-between p-6 items-center text-left">
                         <div className="icons mr-3">
                             <FontAwesomeIcon icon={faFolder} className="text-gray-600" size="2x" />
                         </div>
@@ -44,8 +44,8 @@ const HomePage = () => {
                     </Link>
                 </div>
 
-                <div className="ot-subjects  bg-white rounded-lg p-6 hover:shadow-lg active:shadow-xl">
-                    <Link to="subject/3" className="flex justify-between items-center text-left">
+                <div className="ot-subjects  bg-white rounded-lg hover:shadow-lg active:shadow-xl">
+                    <Link to="subject/3" className="flex justify-between p-6 items-center text-left">
                         <div className="icons mr-3">
                             <FontAwesomeIcon icon={faFolder} className="text-gray-600" size="2x" />
                         </div>
@@ -58,8 +58,8 @@ const HomePage = () => {
                     </Link>
                 </div>
 
-                <div className="ot-subjects  bg-white rounded-lg p-6 hover:shadow-lg active:shadow-xl">
-                    <Link to="subject/4" className="flex justify-between items-center text-left">
+                <div className="ot-subjects  bg-white rounded-lg hover:shadow-lg active:shadow-xl">
+                    <Link to="subject/4" className="flex justify-between p-6 items-center text-left">
                         <div className="icons mr-3">
                             <FontAwesomeIcon icon={faFolder} className="text-gray-600" size="2x" />
                         </div>

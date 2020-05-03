@@ -9,7 +9,7 @@ import { faFile } from '@fortawesome/free-regular-svg-icons'
 
 const ExamPage = () => {
     return (
-        <div className="ot-exam-page-container py2 container mx-auto">
+        <div className="ot-exam-page-container pt-2 pb-20 container mx-auto">
             <h2 className="ot-header">Computer Programming</h2>
             <Search placeholder={"Search"} />
 
