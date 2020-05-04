@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom'
-
+import ProtectedRoute from './components/Widgets/ProtectedRoute'
 
 import Layout from './hoc/layout'
 import SubjectsPage from './components/Subject/SubjectsPage'
@@ -21,11 +21,11 @@ const Routes = withRouter(({ location }) => {
                 <Route path="/login" exact component={LoginPage} />
                 <Route path="/register" exact component={RegisterPage} />
                 <Route path="/reset-password" exact component={ResetPasswordPage} />
-                <Route path="/" exact component={HomePage} />
-                <Route path="/subject" exact component={SubjectsPage} />
-                <Route path="/profile" exact component={ProfilePage} />
-                <Route path="/subject/create" exact component={CreateSubjectPage} />
-                <Route path="/subject/:id" exact component={ExamPage} />
+                <ProtectedRoute path="/" exact component={HomePage} />
+                <ProtectedRoute path="/subject" exact component={SubjectsPage} />
+                <ProtectedRoute path="/profile" exact component={ProfilePage} />
+                <ProtectedRoute path="/subject/create" exact component={CreateSubjectPage} />
+                <ProtectedRoute path="/subject/:id" exact component={ExamPage} />
                 <Route component={PageNotFound} />
             </Switch>
         </Layout>

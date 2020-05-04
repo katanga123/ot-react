@@ -2,17 +2,18 @@ import React from 'react';
 
 import TopNavigation from "../components/Navigation/topNavigation"
 import BottomNavigation from "../components/Navigation/bottomNavigation"
-
+import Cookie from 'universal-cookie'
+const cookie = new Cookie()
 
 const Layout = (props) => {
+    const isAuth = cookie.get('access_token');
     return (
         <div className="ot-main-layout px-4">
-
-            {props.pathname !== '/login' && props.pathname !== '/register' && props.pathname !== '/reset-password' ? <TopNavigation /> : null}
+            {isAuth ? <TopNavigation /> : null}
 
             {props.children}
 
-            {props.pathname !== '/login' && props.pathname !== '/register' && props.pathname !== '/reset-password' ? <BottomNavigation /> : null}
+            {isAuth ? <BottomNavigation /> : null}
 
         </div>
     )
