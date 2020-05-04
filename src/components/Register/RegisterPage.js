@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom'
-
-import axios from 'axios'
-import UrlService from '../../services/UrlService'
-
-import AuthService from '../../services/AuthService'
-import RenderErrors from '../../components/Error/RenderErrors'
+import { Link } from 'react-router-dom'
 
 class RegisterPage extends Component {
 
@@ -30,52 +24,8 @@ class RegisterPage extends Component {
         }
     }
 
-    handleInput = (e) => {
-        const target = e.target
-        const value = target.value
-        const name = target.name
-
-        this.setState({
-            [name]: value
-        })
-    }
-
-    handleSubmitRegister = (e) => {
-        e.preventDefault()
-
-        const postData = {
-            name: this.state.first_name + ' ' + this.state.last_name,
-            email: this.state.email,
-            password: this.state.password,
-            password_confirmation: this.state.password_confirmation,
-            checkbox: this.state.checkbox
-        }
-
-        axios.post(UrlService.registerUrl(), postData)
-            .then(response => {
-
-                AuthService.authenticate(() => {
-                    this.setState({
-                        redirectToReferrer: true,
-                    })
-                })
-
-                return response.data
-            })
-            .catch(error => {
-                this.setState({
-                    errorMessage: error.response.data
-                })
-            })
-    }
-
     render() {
 
-        const { redirectToReferrer, errorMessage } = this.state
-
-        if (redirectToReferrer === true) {
-            return <Redirect to='/' />
-        }
 
         return (
             <div className="ot-auth-container bg-white flex justify-center items-top p-0 m-0 overflow-auto sm:overflow-auto md:overflow-auto lg:overflow-hidden xl:overflow-hidden absolute top-0 bottom-0 left-0 right-0">
@@ -84,9 +34,8 @@ class RegisterPage extends Component {
                         <h1 className="ot-header pb-4">Register</h1>
                         <p className="ot-sub-header">Mel ea numquam efficiendi appellantur, eu vix reque inermis propriae, animal.</p>
                     </div>
-                    <RenderErrors errorData={errorMessage} />
                     <div className="ot-form-container max-auto mt-16 pb-16">
-                        <form onSubmit={this.handleSubmitRegister}>
+                        <form >
                             <div className="ot-form-control flex flex-row relative">
                                 <input type="text" name="first_name" className="ot-input mr-4" placeholder="First Name" value={this.state.first_name} onChange={this.handleInput} />
                                 <input type="text" name="last_name" className="ot-input" placeholder="Last Name" value={this.state.last_name} onChange={this.handleInput} />
