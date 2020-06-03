@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios';
 
 // services
-import Auth from '../../services/Auth'
+import AuthService from '../../services/AuthService'
 import UrlService from '../../services/UrlService'
 import RenderErrors from '../Error/RenderErrors';
 
@@ -52,7 +52,7 @@ class RegisterPage extends Component {
 
         axios.post(UrlService.registerUrl(), postData)
             .then((response) => {
-                Auth.login(response.data, () => {
+                AuthService.login(response.data, () => {
                     this.setState({
                         redirectToReferrer: true
                     })

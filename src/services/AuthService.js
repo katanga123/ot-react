@@ -1,10 +1,9 @@
-import Cookie from 'universal-cookie'
+import CookieService from './CookieService'
 
-const cookie = new Cookie()
 const expiredAt = 60 * 24;
 
 
-class Auth {
+class AuthService {
     login(response, cb) {
 
         const token = response.success.token
@@ -13,17 +12,19 @@ class Auth {
         date.setTime(date.getTime() + (expiredAt * 60 * 1000))
         const options = { path: '/', expires: date }
 
-        cookie.set('access_token', token, options)
+        CookieService.set('access_token', token, options)
 
         // callback
         cb();
     }
 
+
+
     logout(cb) {
-        cookie.remove('access_token')
+        CookieService.remove('access_token')
 
         // callback
         cb();
     }
 }
-export default new Auth();
+export default new AuthService();

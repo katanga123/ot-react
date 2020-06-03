@@ -7,6 +7,8 @@ import Routes from './routes'
 import * as serviceWorker from './serviceWorker';
 import "./index.scss"
 
+import 'sweetalert2/src/sweetalert2.scss'
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

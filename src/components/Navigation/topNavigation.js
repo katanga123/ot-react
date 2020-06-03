@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom'
-import Auth from '../../services/Auth'
+import AuthService from '../../services/AuthService'
 
 // icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -43,7 +43,7 @@ const TopNavigation = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/" className="px-4 py-2 block relative font-semibold" onClick={() => { Auth.logout(() => history.push('/')) }}>
+                    <Link to="/" className="px-4 py-2 block relative font-semibold" onClick={() => { AuthService.logout(() => history.push('/')) }}>
                         <FontAwesomeIcon icon={faPowerOff} className="text-lg text-gray-400 mr-2 mt-1" /> Logout
                     </Link>
                 </li>

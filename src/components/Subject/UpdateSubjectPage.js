@@ -6,7 +6,7 @@ import UrlService from '../../services/UrlService'
 import RenderErrors from '../Error/RenderErrors';
 import RenderSuccess from '../Error/RenderSuccess';
 
-class CreateSubjectPage extends Component {
+class UpdateSubjectPage extends Component {
 
     constructor(props) {
         super(props)
@@ -14,21 +14,31 @@ class CreateSubjectPage extends Component {
         this.state = {
             subject: '',
             code: '',
-            user_id: '',
             descriptions: '',
             errorMessage: [],
             successMessage: '',
         }
     }
 
+    componentDidMount() {
+        axios.get(UrlService.subjectUrl() + `/` + this.props.match.params.id, UrlService.configAccept())
+            .then(response => {
+                this.setState({
+                    subject: response.data.subject.subject,
+                    code: response.data.subject.code,
+                    descriptions: response.data.subject.descriptions,
+                })
+            }).catch(error => {
+                console.log(error)
+            })
+    }
+
     handleInput = (e) => {
         const target = e.target;
         const value = target.value
         const name = target.name
-        const user_id = this.props.userData.id
 
         this.setState({
-            user_id,
             [name]: value
         });
     }
@@ -36,20 +46,15 @@ class CreateSubjectPage extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
 
-        const postData = {
+        const putData = {
             subject: this.state.subject,
             code: this.state.code,
             descriptions: this.state.descriptions,
-            user_id: this.state.user_id
         }
 
-        axios.post(UrlService.subjectUrl(), postData, UrlService.configContentType())
+        axios.put(UrlService.subjectUrl() + '/' + this.props.match.params.id, putData, UrlService.configContentType())
             .then(response => {
                 this.setState({
-                    subject: '',
-                    code: '',
-                    user_id: '',
-                    descriptions: '',
                     successMessage: response.data
                 })
             })
@@ -65,10 +70,10 @@ class CreateSubjectPage extends Component {
 
         return (
             <div className="ot-home-page-container pt-2 pb-20 container max-w-screen-sm mx-auto">
-                <h2 className="ot-header">Create Subjects</h2>
+                <h2 className="ot-header">Update Subjects</h2>
                 <RenderErrors errorData={errorMessage} />
                 <RenderSuccess successData={successMessage} />
-                {/* Create Subjects */}
+                {/* Update Subjects */}
                 <div className="ot-subjects-container py-4 ">
                     <form onSubmit={this.handleSubmit}>
                         <div className="ot-form-control">
@@ -80,7 +85,7 @@ class CreateSubjectPage extends Component {
                         <div className="ot-form-control">
                             <textarea type="text" name="descriptions" value={this.state.descriptions} onChange={this.handleInput} className="ot-input-white" placeholder="Desciption"></textarea>
                         </div>
-                        <button className="ot-btn ot-btn-regular">Create Subject</button>
+                        <button className="ot-btn ot-btn-regular">Update Subject</button>
                     </form>
                 </div>
             </div>
@@ -88,4 +93,4 @@ class CreateSubjectPage extends Component {
     }
 }
 
-export default CreateSubjectPage;
+export default UpdateSubjectPage;

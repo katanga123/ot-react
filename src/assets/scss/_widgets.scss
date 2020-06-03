@@ -167,3 +167,18 @@
 .ot-black {
     color: #000000;
 }
+
+// Floatin Menu
+.ot-floating-menu {
+    .ot-activator-btn {
+        &:active + .ot-floating-menu,
+        &:hover + .ot-floating-menu,
+        &:focus + .ot-floating-menu {
+            display: block;
+        }
+    }
+
+    .ot-floating-menu {
+        display: none;
+    }
+}
